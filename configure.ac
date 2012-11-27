@@ -187,6 +187,12 @@ case "$localstatedir" in
 		;;
 esac
 
+#Set Export Dir Location
+AC_ARG_WITH([export-dir],
+	AS_HELP_STRING([--with-export-dir], [Directory containing bind exports]))
+AC_SUBST(EXPORT_DIR, $with_export_dir)
+
+
 # Allow specification of alternate state files
 AC_ARG_WITH(srv-lease-file,
 	AC_HELP_STRING([--with-srv-lease-file=PATH],

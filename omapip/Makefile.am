@@ -10,5 +10,4 @@ man_MANS = omapi.3
 EXTRA_DIST = $(man_MANS)
 
 svtest_SOURCES = test.c
-svtest_LDADD = libomapi.a ../bind/lib/libdns.a ../bind/lib/libisc.a
-
+svtest_LDADD = -lgssapi_krb5 -lkrb5 -lgss -lcrypto libomapi.a $(EXPORT_DIR)/libdns.a $(EXPORT_DIR)/libisc.a

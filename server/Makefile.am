@@ -8,8 +8,9 @@ dhcpd_SOURCES = dhcpd.c dhcp.c bootp.c confpars.c db.c class.c failover.c \
 
 dhcpd_CFLAGS = $(LDAP_CFLAGS)
 dhcpd_LDADD = ../common/libdhcp.a ../omapip/libomapi.a \
-	      ../dhcpctl/libdhcpctl.a ../bind/lib/libdns.a \
-	      ../bind/lib/libisc.a
+	      ../dhcpctl/libdhcpctl.a \
+	      $(EXPORT_DIR)/libdns.a $(EXPORT_DIR)/libisc.a \
+	      -lgssapi_krb5 -lkrb5 -lgss -lcrypto
 
 man_MANS = dhcpd.8 dhcpd.conf.5 dhcpd.leases.5
 EXTRA_DIST = $(man_MANS)
